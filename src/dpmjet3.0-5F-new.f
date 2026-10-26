@@ -275,6 +275,8 @@ C  2019-12-02 MDB Move Fluka initializations NCDTRD, INCINI here
 C  BeAGLE runs with ITRSPT=0
          IF (ITRSPT.NE.1) THEN
 
+C  FLUKA 4 allocates its blank common dynamically: do it before NCDTRD
+            CALL FLMALC
             CALL NCDTRD
             CALL INCINI
 
@@ -4088,7 +4090,7 @@ C               CALL DT_PYOUTEP(4)
                CALL DT_GCFOUTQE(2)
             ENDIF
             
-            IF(MOD(IEVT,INT(NEVTS/10)).EQ.0) print*,IEVT,
+            IF(MOD(IEVT,MAX(1,NEVTS/10)).EQ.0) print*,IEVT,
      &           ' events output done'
 C            ELSE
 C*  rotate momenta of final state particles back in photon-nucleon syst.
