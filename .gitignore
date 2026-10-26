@@ -2,4 +2,7 @@
 *.a
 *~
 # Ignore the local file setup_BeAGLE
-setup_BeAGLE
+setup_BeAGLE# local build products (build_local.sh)
+/BeAGLE
+/obj/
+/build_*.log
