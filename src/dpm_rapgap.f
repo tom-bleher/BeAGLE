@@ -531,7 +531,7 @@ C     Lets generate a nice outputfile
         write(txtLun,50) 0,ievent,genevent,ipro,idir,idisdif,avgi,sd,
      &       sss,q2,yy,xgam,xpr,p_t,pt2h,shh,t2gki,xfgki,shat,zqgki,
      &       xpgki,phitgki,N
- 50     format((I4,1x,$),(I10,1x,$),4(I4,1x,$),16(f12.4,1x,$),I12,/)
+ 50     format((I4,1x),(I10,1x),4(I4,1x),16(f12.4,1x),I12)
         write(txtLun,*)'============================================'
 
         DO I=1,n
@@ -539,8 +539,8 @@ C     Lets generate a nice outputfile
      &          P(I,1),P(I,2),P(I,3),P(I,4),P(I,5),
      &          V(I,1),V(I,2),V(I,3)
         ENDDO
- 52     format(2(I6,1x,$),I10,1x,$,3(I6,1x,$),5(f16.9,1x,$),
-     &       3(f15.6,1x,$)/)
+ 52     format(2(I6,1x),I10,1x,3(I6,1x),5(f16.9,1x),
+     &       3(f15.6,1x))
         write(txtLun,*)'=============== Event finished ==============='
 
         lastgenevent=NIN
